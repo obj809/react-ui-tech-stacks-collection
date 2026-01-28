@@ -30,6 +30,9 @@ jobs:
 
       # Run the tests
       - name: Run tests
+        env:
+          VITE_SUPABASE_URL: https://dummy-project.supabase.co
+          VITE_SUPABASE_ANON_KEY: dummy-anon-key-for-testing
         run: npm test
 
       # Optionally collect test coverage (if using a tool like `jest --coverage`)
