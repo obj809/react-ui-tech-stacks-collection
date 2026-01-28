@@ -1,6 +1,6 @@
 # React UI Tech Stacks Collection
 
-[![CI - Run Tests](https://github.com/cyberforge1/react-ui-tech-stacks-collection/actions/workflows/ci.yml/badge.svg)](https://github.com/cyberforge1/react-ui-tech-stacks-collection/actions/workflows/ci.yml)
+[![CI - Run Tests](https://github.com/cyberforge1/react-ui-tech-stacks-collection/actions/workflows/ci.yml/badge.svg?branch=supabase-integration)](https://github.com/cyberforge1/react-ui-tech-stacks-collection/actions/workflows/ci.yml?query=branch%3Asupabase-integration)
 
 A React Todo application with full CRUD functionality, powered by Supabase.
 
