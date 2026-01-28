@@ -3,6 +3,7 @@
 export interface Todo {
     id: number; // Unique identifier for the todo item
     title: string; // Title of the todo
+    created_at?: string; // Optional timestamp from Supabase
   }
   
   export interface TodoCreation {

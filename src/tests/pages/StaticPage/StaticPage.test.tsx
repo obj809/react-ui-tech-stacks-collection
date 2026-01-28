@@ -1,28 +1,22 @@
 // src/tests/pages/StaticPage/StaticPage.test.tsx
 
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
-import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest'; // Added beforeEach import
+import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest';
 import StaticPage from '../../../pages/StaticPage/StaticPage';
-
-// Mock the API calls used in StaticPage
-vi.mock('../../../api/api', () => ({
-  getMainMessage: vi.fn(),
-}));
 
 // Mock the useNavigate hook from react-router-dom
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
   return {
     ...actual,
-    useNavigate: vi.fn(), // Mock useNavigate as a vi.fn() function
+    useNavigate: vi.fn(),
   };
 });
 
-import { getMainMessage } from '../../../api/api';
 import { useNavigate } from 'react-router-dom';
 
 describe('StaticPage Component', () => {
-  const navigateMock = vi.fn(); // Define the navigateMock
+  const navigateMock = vi.fn();
 
   beforeEach(() => {
     (useNavigate as ReturnType<typeof vi.fn>).mockReturnValue(navigateMock);
@@ -30,29 +24,17 @@ describe('StaticPage Component', () => {
 
   afterEach(() => {
     cleanup();
-    vi.clearAllMocks(); // Clear all mocks after each test
+    vi.clearAllMocks();
   });
 
-  it('displays "Loading..." initially', () => {
+  it('renders the welcome message', () => {
     render(<StaticPage />);
-    const loadingText = screen.getByText(/loading\.\.\./i);
-    expect(loadingText).toBeTruthy();
+    expect(screen.getByText(/welcome to todo app/i)).toBeTruthy();
   });
 
-  it('renders the fetched message from the API', async () => {
-    (getMainMessage as ReturnType<typeof vi.fn>).mockResolvedValueOnce('Hello, World!');
-
+  it('renders the subtitle', () => {
     render(<StaticPage />);
-    expect(await screen.findByText(/hello, world!/i)).toBeTruthy();
-  });
-
-  it('displays an error message when the API call fails', async () => {
-    (getMainMessage as ReturnType<typeof vi.fn>).mockImplementationOnce(() =>
-      Promise.reject(new Error('Failed to fetch message'))
-    );
-
-    render(<StaticPage />);
-    expect(await screen.findByText(/failed to load the message\. please try again later\./i)).toBeTruthy();
+    expect(screen.getByText(/powered by react \+ supabase/i)).toBeTruthy();
   });
 
   it('navigates to the Form page when the button is clicked', () => {

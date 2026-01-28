@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StaticPage Component > matches the snapshot 1`] = `
+<div
+  data-testid="static-page"
+>
+  <h1>
+    Welcome to Todo App
+  </h1>
+  <p>
+    Powered by React + Supabase
+  </p>
+  <button
+    aria-label="Go to Form"
+  >
+    Go to Form
+  </button>
+</div>
+`;

@@ -7,7 +7,6 @@ import App from '../../App';
 
 // Mock API calls
 vi.mock('../../api/api', () => ({
-  getMainMessage: vi.fn(),
   getTodos: vi.fn(),
   createTodo: vi.fn(),
   updateTodo: vi.fn(),
@@ -20,7 +19,6 @@ describe('App Integration Tests', () => {
   });
 
   it('navigates between pages and fetches data', async () => {
-    (api.getMainMessage as ReturnType<typeof vi.fn>).mockResolvedValueOnce('Welcome to the app!');
     (api.getTodos as ReturnType<typeof vi.fn>).mockResolvedValueOnce([
       { id: 1, title: 'Test Todo' },
     ]);
@@ -28,7 +26,7 @@ describe('App Integration Tests', () => {
     render(<App />);
 
     // Verify StaticPage content
-    expect(await screen.findByText('Welcome to the app!')).toBeTruthy();
+    expect(await screen.findByText('Welcome to Todo App')).toBeTruthy();
 
     // Locate and click the "Go to Form" button
     const goToFormButton = await screen.findByRole('button', { name: /go to form/i });
