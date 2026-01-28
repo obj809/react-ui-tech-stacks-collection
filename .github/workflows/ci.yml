@@ -5,6 +5,7 @@ on:
     branches:
       - main    # Run tests on push to the main branch
       - develop # Optionally include other branches
+      - supabase-integration # Run tests on supabase-integration branch
   pull_request:
     branches:
       - main
