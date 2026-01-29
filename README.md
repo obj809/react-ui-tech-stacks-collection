@@ -1,4 +1,4 @@
-# React UI Tech Stacks Collection
+# react-ui-tech-stacks-collection
 
 [![CI - Run Tests](https://github.com/cyberforge1/react-ui-tech-stacks-collection/actions/workflows/ci.yml/badge.svg)](https://github.com/cyberforge1/react-ui-tech-stacks-collection/actions/workflows/ci.yml)
 
